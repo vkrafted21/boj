@@ -1,0 +1,36 @@
+.job-card {
+  background: rgba(20, 20, 20, 0.75);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+}
+
+.job-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+}
+
+/* Title */
+.job-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+/* Info */
+.job-info p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.85);
+}
+
+/* Actions */
+.job-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}

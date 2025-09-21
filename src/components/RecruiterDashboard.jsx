@@ -1,23 +1,26 @@
 import React, { useState, useEffect } from "react";
+import './RecruiterDashboard.css';
+
 import { db } from "../firebase";
 import { collection, getDocs, addDoc, deleteDoc, doc, updateDoc } from "firebase/firestore";
 import JobCard from "./JobCard";
 import JobDetailModal from "./JobDetailModal";
 import JobForm from "./JobForm";
-import { Form, Button, InputGroup, Modal } from "react-bootstrap";
+import { Form, Button, Modal, Alert } from "react-bootstrap";
 
 export default function RecruiterDashboard({ users }) {
     if (!users) {
-        return <div>Please log in as a recruiter to view this page.</div>;
+        return <div className="no-access">Please log in as a recruiter to view this page.</div>;
     }
+
     const [jobs, setJobs] = useState([]);
-    const [showJobs, setShowJobs] = useState(false);
     const [search, setSearch] = useState("");
     const [sortBy, setSortBy] = useState("");
     const [selectedJob, setSelectedJob] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [editJob, setEditJob] = useState(null);
     const [editForm, setEditForm] = useState({});
+    const [successMessage, setSuccessMessage] = useState("");
 
     const jobsCollection = collection(db, "jobs");
 
@@ -30,8 +33,15 @@ export default function RecruiterDashboard({ users }) {
 
     // Add Job
     const addJob = async (job) => {
-        await addDoc(jobsCollection, { ...job, recruiterId: users.uid });
+        await addDoc(jobsCollection, { 
+            ...job, 
+            recruiterId: users.uid, 
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+        });
         fetchJobs();
+        setSuccessMessage("✅ Job added successfully!");
+        setTimeout(() => setSuccessMessage(""), 3000); // auto-hide after 3s
     };
 
     // Delete Job
@@ -88,46 +98,30 @@ export default function RecruiterDashboard({ users }) {
             return 0;
         });
 
+    const recruiterJobs = filteredJobs.filter(job => job.recruiterId === users.uid);
+
     return (
-        <div>
-            <InputGroup className="mb-3">
-                <Form.Control placeholder="Search by title" value={search} onChange={(e) => setSearch(e.target.value)} />
-                <Form.Select onChange={(e) => setSortBy(e.target.value)}>
-                    <option value="">Sort By</option>
-                    <option value="salary">Salary</option>
-                    <option value="deadline">Deadline</option>
-                </Form.Select>
-            </InputGroup>
+        <div className="recruiter-dashboard">
+            
+            {/* Success Message */}
+            {successMessage && (
+                <Alert variant="success" className="mt-2">{successMessage}</Alert>
+            )}
+
 
             {/* Job Form */}
-            <JobForm onSubmit={addJob} />
+            <div className="job-form">
+                <JobForm onSubmit={addJob} />
+            </div>
 
-            {/* Job List */}
-            <Button
-            className="mb-3"
-            variant={showJobs ? "secondary" : "primary"}
-            onClick={() => setShowJobs((prev) => !prev)}
-        >
-            {showJobs ? "Hide All Jobs" : "View All Jobs"}
-        </Button>
-
-        {showJobs && (
-            <>
-                {filteredJobs.map(job => (
-                    <JobCard
-                        key={job.id}
-                        job={job}
-                        deleteJob={job.recruiterId === users.uid ? deleteJobById : undefined}
-                        editJob={job.recruiterId === users.uid ? () => startEditJob(job) : undefined}
-                        isRecruiter={job.recruiterId === users.uid}
-                        viewDetails={viewDetails}
-                    />
-                ))}
-            </>
-        )}
+           
 
             {/* Job Details Modal */}
-            <JobDetailModal show={showModal} handleClose={() => setShowModal(false)} job={selectedJob} />
+            <JobDetailModal 
+                show={showModal} 
+                handleClose={() => setShowModal(false)} 
+                job={selectedJob} 
+            />
 
             {/* Edit Job Modal */}
             <Modal show={!!editJob} onHide={() => setEditJob(null)}>

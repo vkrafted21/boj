@@ -1,0 +1,68 @@
+  /* Import Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Fondamento&display=swap');
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to left, rgba(0,0,0,0.85), rgba(0,0,0,0.6)),
+                url('https://images.pexels.com/photos/11661715/pexels-photo-11661715.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+  }
+
+  /* Panel for login / role selection */
+.panel {
+  background: rgba(241, 240, 240, 0.6);
+  border-radius: 12px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.6);
+  backdrop-filter: blur(0.5px);
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centers vertically */
+  align-items: center;     /* centers horizontally */
+
+  width: 100%;
+  max-width: 850px;
+  min-width: 500px; 
+  height: 100vh;
+
+  padding: 50px 40px; /* remove duplicate padding */
+  box-sizing: border-box;
+  text-align: center; /* centers inline text inside */
+}
+
+
+  /* Headings */
+  h1 {
+    font-family: "Fondamento", cursive;
+    font-weight: 400;
+    font-size: 4.5rem;
+    font-weight: bolder;
+    margin-bottom: 0.5rem;
+    color: #010101;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    color: #525050;
+  }
+
+  /* Buttons */
+  button, .btn {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  button:hover, .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255,255,255,0.2);
+  }
+
+
