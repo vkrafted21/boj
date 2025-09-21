@@ -8,7 +8,7 @@ import RoleSelection from "./components/RoleSelection";
 import { Container, Button } from "react-bootstrap";
 
 export default function App() {
-  const [user, setUser] = useState(null);
+  const [users, setUser] = useState(null);
   const [role, setRole] = useState(null);
 
   useEffect(() => {
@@ -45,21 +45,25 @@ export default function App() {
 
   return (
     <Container>
-      {!user ? (
+      {!users ? (
         <div className="text-center mt-5">
           <h2>Login with Google</h2>
           <Button className="m-2" onClick={() => handleGoogleLogin("recruiter")}>Recruiter</Button>
           <Button className="m-2" onClick={() => handleGoogleLogin("jobseeker")}>Job Seeker</Button>
         </div>
       ) : !role ? (
-        <RoleSelection user={user} setRole={setRole} />
+        <RoleSelection users={users} setRole={setRole} />
       ) : (
         <>
           <div className="d-flex justify-content-end mt-3">
             <Button variant="danger" onClick={handleLogout}>Logout</Button>
           </div>
           <h1 className="text-center my-4">Job Portal</h1>
-          {role === "recruiter" ? <RecruiterDashboard /> : <JobSeekerDashboard user={user} />}
+          {role === "recruiter" ? (
+            <RecruiterDashboard users={users} />
+          ) : (
+            <JobSeekerDashboard users={users} />
+          )}
         </>
       )}
     </Container>

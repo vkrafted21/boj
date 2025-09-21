@@ -3,9 +3,9 @@ import { doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { Button, Container } from "react-bootstrap";
 
-export default function RoleSelection({ user, setRole }) {
+export default function RoleSelection({ users, setRole }) {
     const chooseRole = async (role) => {
-        await setDoc(doc(db, "users", user.uid), { email: user.email, role });
+        await setDoc(doc(db, "users", users.uid), { email: users.email, role });
         setRole(role);
     };
 

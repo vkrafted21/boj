@@ -1,7 +1,8 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 
-export default function JobCard({ job, deleteJob, applyJob, isRecruiter, viewDetails }) {
+
+export default function JobCard({ job, deleteJob, editJob, applyJob, isRecruiter, viewDetails }) {
     return (
         <Card className="mb-3">
             <Card.Body>
@@ -21,7 +22,8 @@ export default function JobCard({ job, deleteJob, applyJob, isRecruiter, viewDet
                     <strong>Updated:</strong> {job.updated_at} <br />
                 </Card.Text>
                 <Button variant="info" className="me-2" onClick={() => viewDetails(job)}>View Details</Button>
-                {isRecruiter && <Button variant="danger" onClick={() => deleteJob(job.id)}>Delete</Button>}
+                {deleteJob && <Button variant="danger" className="me-2" onClick={() => deleteJob(job.id)}>Delete</Button>}
+                {editJob && <Button variant="warning" onClick={() => editJob(job)}>Edit</Button>}
                 {applyJob && <Button variant="success" onClick={() => applyJob(job.id)}>Apply</Button>}
             </Card.Body>
         </Card>
