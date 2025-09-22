@@ -64,7 +64,7 @@ export default function App() {
   return (
     <div className="app-container">
       {!users ? (
-        <div className="panel">
+        <div className="panel container text-center">
           <h1>GigGrid</h1>
           <h2>Find your next gig</h2>
           <Button className="btn-light" onClick={handleGoogleLogin}>
@@ -72,7 +72,7 @@ export default function App() {
           </Button>
         </div>
       ) : isNewUser ? (
-        <div className="panel2">
+        <div className="panel2 container text-center">
           <RoleSelection users={users} setRole={setRole} setIsNewUser={setIsNewUser} />
         </div>
       ) : (

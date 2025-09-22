@@ -11,10 +11,12 @@
   padding: 32px 24px;
   max-width: 1200px;
   margin: 0 auto;
-  background: rgba(0,0,0,0.55);
+  background: rgba(0,0,0,0.55); /* existing dark semi-transparent bg */
   border-radius: 12px;
   min-height: 80vh;
   color: #fff;
+  backdrop-filter: blur(12px); /* adds glossy blur effect */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5); /* subtle shadow for depth */
 }
 
 /* Search + Sort container */
@@ -35,7 +37,14 @@
   border: 1px solid rgba(255,255,255,0.2);
   color: #fff;
 }
-
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 12px;
+}
 .jobseeker-dashboard .search-input::placeholder {
   color: rgba(255,255,255,0.6);
 }
@@ -46,4 +55,20 @@
   background: rgba(255,255,255,0.1);
   border: 1px solid rgba(255,255,255,0.2);
   color: #fff;
+}
+
+.jump-to-page {
+  /* add this block or update if it exists */
+  max-width: 160px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+}
+.jump-to-page .form-control {
+  min-width: 0;
+  width: 60px;
+  flex: 0 0 60px;
+}
+.jump-to-page .btn {
+  flex: 0 0 auto;
 }

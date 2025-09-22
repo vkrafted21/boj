@@ -35,15 +35,6 @@
   text-align: center; /* centers inline text inside */
 }
 
-.app-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
 /* Panel2 floating, glossy, classy */
 .panel2 {
   padding: 50px 40px;
@@ -55,7 +46,7 @@
   text-align: center;
   min-width: 500px;
   max-width: 850px;
-  width: 100%;
+  width: 50%;
   background: rgba(238, 236, 236, 0.6);
   border-radius: 12px;
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
@@ -69,10 +60,10 @@
 
 h1 {
   font-family: "Stalinist One", sans-serif;
-  font-weight: 400;
+  font-weight:900px;
   font-style: normal;
-  margin-bottom: 0.5rem;
-  color: #050505;   /* 👈 This is nearly black */
+  margin-bottom: 0.5rem;  
+  color: #050505;   
 }
  
   h2 {

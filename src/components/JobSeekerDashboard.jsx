@@ -196,24 +196,24 @@ export default function JobSeekerDashboard({ users }) {
                                     </Button>
                                 </div>
 
-                                <div className="jump-to-page">
-                                    <InputGroup size="sm">
-                                        <Form.Control
-                                            placeholder="Go to page"
-                                            value={jumpPage}
-                                            onChange={(e) => setJumpPage(e.target.value)}
-                                            type="number"
-                                            min="1"
-                                            max={totalPages}
-                                        />
-                                        <Button 
-                                            variant="outline-light" 
-                                            onClick={handleJumpPage}
-                                            disabled={!jumpPage}
-                                        >
-                                            Go
-                                        </Button>
-                                    </InputGroup>
+                                <div className="jump-to-page mt-2">
+                                <InputGroup size="sm">
+                                    <Form.Control
+                                    placeholder="Go to page"
+                                    value={jumpPage}
+                                    onChange={(e) => setJumpPage(e.target.value)}
+                                    type="number"
+                                    min="1"
+                                    max={totalPages}
+                                    />
+                                    <Button 
+                                    variant="outline-light" 
+                                    onClick={handleJumpPage}
+                                    disabled={!jumpPage}
+                                    >
+                                    Go
+                                    </Button>
+                                </InputGroup>
                                 </div>
                             </div>
                         )}
