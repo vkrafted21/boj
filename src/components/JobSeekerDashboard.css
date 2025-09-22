@@ -1,4 +1,12 @@
 
+/* In JobSeekerDashboard.css */
+.jobseeker-dashboard .app-container {
+  all: unset;        /* nukes ALL styles applied */
+  display: block;    /* then add back what you actually need */
+  margin: 0;
+  padding: 0;
+}
+
 .jobseeker-dashboard {
   padding: 32px 24px;
   max-width: 1200px;

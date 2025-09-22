@@ -67,12 +67,12 @@ export default function App() {
         <div className="panel">
           <h1>GigGrid</h1>
           <h2>Find your next gig</h2>
-          <Button className="btn-primary" onClick={handleGoogleLogin}>
+          <Button className="btn-light" onClick={handleGoogleLogin}>
             Login with Google
           </Button>
         </div>
       ) : isNewUser ? (
-        <div className="panel">
+        <div className="panel2">
           <RoleSelection users={users} setRole={setRole} setIsNewUser={setIsNewUser} />
         </div>
       ) : (

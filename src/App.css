@@ -1,5 +1,6 @@
   /* Import Google Fonts */
   @import url('https://fonts.googleapis.com/css2?family=Fondamento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&family=Libertinus+Math&family=Londrina+Solid:wght@100;300;400;900&family=Stalinist+One&display=swap');
 
   body, html {
     margin: 0;
@@ -14,7 +15,7 @@
 
   /* Panel for login / role selection */
 .panel {
-  background: rgba(241, 240, 240, 0.6);
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 12px;
   box-shadow: 0 12px 25px rgba(0,0,0,0.6);
   backdrop-filter: blur(0.5px);
@@ -34,22 +35,51 @@
   text-align: center; /* centers inline text inside */
 }
 
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
 
-  /* Headings */
-  h1 {
-    font-family: "Fondamento", cursive;
-    font-weight: 400;
-    font-size: 4.5rem;
-    font-weight: bolder;
-    margin-bottom: 0.5rem;
-    color: #010101;
-  }
+/* Panel2 floating, glossy, classy */
+.panel2 {
+  padding: 50px 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; /* stack RoleSelection content nicely */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-width: 500px;
+  max-width: 850px;
+  width: 100%;
+  background: rgba(238, 236, 236, 0.6);
+  border-radius: 12px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  color: #060606;
+}
+.panel {
+  background: rgba(255,255,255,0.15);
+  color: #000; /* makes text dark */
+}
 
+h1 {
+  font-family: "Stalinist One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-bottom: 0.5rem;
+  color: #050505;   /* 👈 This is nearly black */
+}
+ 
   h2 {
     font-size: 1.5rem;
     font-weight: 500;
     margin-bottom: 2rem;
-    color: #525050;
+    color: #000000;
   }
 
   /* Buttons */
